@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    div{
+        border: 1px solid black;
+    }
+</style>
+<script src="cw.js">
+    // - є масив
+
+    for (const simpson of simpsons) {
+        let divElement = document.createElement('div');
+        divElement.classList.add('member');
+        divElement.innerText = `${simpson.name} ${simpson.surname} ${simpson.age}`
+        document.body.appendChild(divElement);
+    }
+
+    // - взяти попередній масив з сімпсонами.
+    //     Проітерувати його, створиши для кожного елементу масиву <div class='member'>. Для кожної властивості елементу створити окремий блок, та помістити його у div.member
+
+
+    for (const simpson of simpsons) {
+        let divElement = document.createElement('div');
+        divElement.classList.add('member');
+
+        let divName = document.createElement('div');
+        divName.innerText = simpson.name;
+
+        let divSurname = document.createElement('div');
+        divSurname.innerText = simpson.surname
+        let divAge = document.createElement('div');
+        divAge.innerText = simpson.age;
+
+        let pInfo = document.createElement('p');
+        pInfo.innerText = simpson.info;
+
+        let img = document.createElement('img');
+        img.src = simpson.photo
+
+
+        divElement.appendChild(divName);
+        divElement.appendChild(divSurname);
+        divElement.appendChild(divAge);
+        divElement.appendChild(pInfo);
+        divElement.appendChild(img);
+        document.body.appendChild(divElement);
+    }
+
+    // - Є масив
+    let coursesArray = [
+        {
+            title: 'JavaScript Complex',
+            monthDuration: 5,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
+        },
+        {
+            title: 'Java Complex',
+            monthDuration: 6,
+            hourDuration: 909,
+            modules: ['html',
+                'css',
+                'js',
+                'mysql',
+                'mongodb',
+                'angular',
+                'aws',
+                'docker',
+                'git',
+                'java core',
+                'java advanced']
+        },
+        {
+            title: 'Python Complex',
+            monthDuration: 6,
+            hourDuration: 909,
+            modules: ['html',
+                'css',
+                'js',
+                'mysql',
+                'mongodb',
+                'angular',
+                'aws',
+                'docker',
+                'python core',
+                'python advanced']
+        },
+        {
+            title: 'QA Complex',
+            monthDuration: 4,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
+        },
+        {
+            title: 'FullStack',
+            monthDuration: 7,
+            hourDuration: 909,
+            modules: ['html',
+                'css',
+                'js',
+                'mysql',
+                'mongodb',
+                'react',
+                'angular',
+                'aws',
+                'docker',
+                'git',
+                'node.js',
+                'python',
+                'java']
+        },
+        {
+            title: 'Frontend',
+            monthDuration: 4,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
+        }
+    ];
+    // Створити для кожного елементу масиву свій блок, блок розділити блоками, в яких будуть зберігатись значення окремих властивостей,
+    // для властивості modules зробити список з елементами
+    // Приклад структири знаходиться у файлі example.png
+
+    for (const course of coursesArray) {
+
+        let courseElement = document.createElement('course');
+        let titleElement = document.createElement('h2');
+        titleElement.innerText = course.title;
+
+        let monthDurationElement = document.createElement('div');
+        monthDurationElement.innerText = course.monthDuration;
+        let hourDurationElement = document.createElement('div');
+        hourDurationElement.innerText = course.hourDuration;
+
+        let modulesElement = document.createElement('ul');
+
+        for (const moduleItem of course.modules) {
+            let module = document.createElement('li');
+            module.innerText = moduleItem;
+            modulesElement.appendChild(module);
+        }
+
+        courseElement.appendChild(titleElement);
+        courseElement.appendChild(monthDurationElement);
+        courseElement.appendChild(hourDurationElement);
+        courseElement.appendChild(modulesElement);
+        document.body.appendChild(courseElement);
+    }
+
+</script>
+
+</body>
+</html>
